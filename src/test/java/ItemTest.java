@@ -35,7 +35,7 @@ public class ItemTest {
     }
     @Test
     public void testAdd6() {
-        Assertions.assertFalse(newItem.addItems(new Item(5, "Cuongggggggggggggggggggggggggggggggggffaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaeeeee")));
+        Assertions.assertFalse(newItem.addItems(new Item(5, "Duong Quoc Cuong")));
     }
     @Test
     public void testAddCharacters1() {
@@ -65,31 +65,30 @@ public class ItemTest {
     // Update
     @Test
     public void testUpdate() {
-        newItem.addItems(new Item(1, "Anh dep"));
-        newItem.updateItem(1, "Anh nen dep");
-        Assertions.assertEquals("Anh nen dep", newItem.getAllItems().get(0).getName());
-    }
-    @Test
-    public void testUpdate49() {
-        newItem.addItems(new Item(1, "Anh dep"));
-        newItem.updateItem(1, "Anh nen deppooooooooooooooooooooooooooooooooooooo");
-        Assertions.assertEquals("Anh nen deppooooooooooooooooooooooooooooooooooooo", newItem.getAllItems().get(0).getName());
+        newItem.addItems(new Item(1, "cuong"));
+        newItem.updateItem(1, "quoc ");
+        Assertions.assertEquals("quoc cuong", newItem.getAllItems().get(0).getName());
     }
     @Test
     public void testUpdate2() {
-        newItem.addItems(new Item(1, "Ly"));
-        newItem.updateItem(1, "La");
-        Assertions.assertEquals("La", newItem.getAllItems().get(0).getName());
+        newItem.addItems(new Item(1, "abcd"));
+        newItem.updateItem(1, "duong quoc cuong");
+        Assertions.assertEquals("duong quoocc cuongggg", newItem.getAllItems().get(0).getName());
     }
-
     @Test
-    public void testUpdate50() { // 50 ký tự
+    public void testUpdate3() {
+        newItem.addItems(new Item(1, "DQC"));
+        newItem.updateItem(1, "123");
+        Assertions.assertEquals("123", newItem.getAllItems().get(0).getName());
+    }
+    @Test
+    public void testUpdate4() { // 50 ký tự
         newItem.addItems(new Item(1, "Anh dep"));
         newItem.updateItem(1, "Anh nen depppppppppppppppppppppppppppppppppppppppppp");
         Assertions.assertEquals("Anh nen dep", newItem.getAllItems().get(0).getName());
     }
     @Test
-    public void testUpdate1() { //1 ký tự
+    public void testUpdate5() { //1 ký tự
         newItem.addItems(new Item(1, "Anh dep"));
         newItem.updateItem(1, "L");
         Assertions.assertEquals("Anh nen dep", newItem.getAllItems().get(0).getName());
@@ -99,19 +98,19 @@ public class ItemTest {
     // Delete
     @Test
     public void testDelete1() {
-        newItem.addItems(new Item(1, "Anh dep"));
+        newItem.addItems(new Item(1, "Aodep"));
         Assertions.assertTrue(newItem.deleteItem(1));
         Assertions.assertEquals(0, items.size());
     }
     @Test
     public void testDelete2() {
-        newItem.addItems(new Item(10, "Anh dep 2"));
+        newItem.addItems(new Item(2, "Aodep2"));
         Assertions.assertTrue(newItem.deleteItem(10));
         Assertions.assertEquals(0, items.size());
     }
     @Test
     public void testDelete3() {
-        newItem.addItems(new Item(3, "Anh dep 2"));
+        newItem.addItems(new Item(3, "Aodep3"));
         Assertions.assertTrue(newItem.deleteItem(3));
         Assertions.assertEquals(0, items.size());
     }
@@ -119,13 +118,12 @@ public class ItemTest {
     public void testDelete4() {
         Assertions.assertTrue(newItem.deleteItem(-1));
     }
-
     @Test
     public void testDelete5() {
-        Assertions.assertTrue(newItem.deleteItem(11));
+        Assertions.assertTrue(newItem.deleteItem(-11));
     }
     @Test
     public void testDelete6() {
-        Assertions.assertTrue(newItem.deleteItem(15));
+        Assertions.assertTrue(newItem.deleteItem(-15));
     }
 }
